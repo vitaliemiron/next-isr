@@ -3,5 +3,5 @@ export async function generateStaticParams() {
 }
 
 export default function Page({ params }: any) {
-  return <div>current id - {params.id} </div>;
+  return <div>Hello World ID - {params.id} </div>;
 }
