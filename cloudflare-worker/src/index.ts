@@ -34,7 +34,7 @@ export default {
 			return Response.redirect(url.toString(), 301);
 		}
 		if (url.pathname === '/auto') {
-			url.pathname = url.pathname.replace('/auto', '/deployed');
+			url.pathname = url.pathname.replace('/auto', '/deployed2');
 			return Response.redirect(url.toString(), 301);
 		}
 		return new Response('Hello World!');
