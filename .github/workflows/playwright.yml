@@ -13,5 +13,7 @@ jobs:
           echo "Event Name: $GITHUB_EVENT_NAME"
           echo "Event Path: $GITHUB_EVENT_PATH"
           echo "Deployment Status State: ${{ github.event.deployment_status.state }}"
-          echo "Environment URL: ${{ github.event.deployment_status.environment_url }}"
+          echo "Environment URL: ${{ github.event.deployment_status }}"
+          cat $GITHUB_EVENT_PATH
+          echo "GF Context ${{toJson(github)}}"
         shell: bash
