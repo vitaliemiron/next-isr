@@ -4,15 +4,15 @@ on:
   deployment_status:
 
 jobs:
-  your_job:
+  run-e2es:
+    if: github.event_name == 'deployment_status'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16' # It's generally a good practice to specify the Node.js version
-      - name: Install dependencies
-        run: npm install
-      - name: Run custom action
-        run: node your-action-script.js # Replace with your actual script path
+      - name: Extract serviceDomain
+        run: |
+          SERVICE_DOMAIN=$(jq -r '.event.deployment.payload.deployment.serviceDeployments[0].serviceDomain' $GITHUB_EVENT_PATH)
+          echo "Service Domain: $SERVICE_DOMAIN"
+          echo "SERVICE_DOMAIN=$SERVICE_DOMAIN" >> $GITHUB_ENV
+        shell: bash
+      - name: Debug information
+        run: index.js
