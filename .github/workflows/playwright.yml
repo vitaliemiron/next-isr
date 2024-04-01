@@ -9,12 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Debug information
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
           echo "Event Name: $GITHUB_EVENT_NAME"
           echo "Event Path: $GITHUB_EVENT_PATH"
           echo "Deployment Status State: ${{ github.event.deployment_status.state }}"
           echo "Environment URL: ${{ github.event.deployment_status }}"
-          echo "$GITHUB_CONTEXT"
+          echo "GF Context ${{toJson(github)}}"
         shell: bash
