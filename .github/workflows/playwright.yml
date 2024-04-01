@@ -8,12 +8,18 @@ jobs:
     if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
     runs-on: ubuntu-latest
     steps:
+      - name: Extract serviceDomain
+        run: |
+          SERVICE_DOMAIN=$(jq -r '.event.deployment.payload.deployment.serviceDeployments[0].serviceDomain' $GITHUB_EVENT_PATH)
+          echo "Service Domain: $SERVICE_DOMAIN"
+          echo "SERVICE_DOMAIN=$SERVICE_DOMAIN" >> $GITHUB_ENV
+        shell: bash
       - name: Debug information
         run: |
           echo "Event Name: $GITHUB_EVENT_NAME"
           echo "Event Path: $GITHUB_EVENT_PATH"
           echo "Deployment Status State: ${{ github.event.deployment_status.state }}"
-          echo "Environment URL: ${{ github.event.deployment_status }}"
-          cat $GITHUB_EVENT_PATH
+          echo "Environment URL: ${{ github.event.payload.serviceDeployments.serviceDeployments[0].serviceDomain }}"
+
           echo "GF Context ${{toJson(github)}}"
         shell: bash
