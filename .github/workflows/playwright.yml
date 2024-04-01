@@ -1,31 +1,16 @@
-name: Extract Deployment URL
+name: Playwright Tests
 
 on:
-  issue_comment:
-    types: [created]
+  deployment_status:
 
 jobs:
-  extract-url:
+  run-e2es:
     runs-on: ubuntu-latest
-    if: github.event.issue.pull_request
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Extract deployment URL
+      - name: Debug information
         run: |
-          COMMENT_BODY="${{ github.event.comment.body }}"
-          URL_REGEX="https?://[a-zA-Z0-9.-]+/[a-zA-Z0-9-._~:/?#[\\]@!$&'()*+,;=]+"
-          if [[ $COMMENT_BODY =~ $URL_REGEX ]]; then
-            DEPLOYMENT_URL="${BASH_REMATCH[0]}"
-            echo "Deployment URL: $DEPLOYMENT_URL"
-            echo "DEPLOYMENT_URL=$DEPLOYMENT_URL" >> $GITHUB_ENV
-          else
-            echo "No URL found in comment."
-          fi
+          echo "Event Name: $GITHUB_EVENT_NAME"
+          echo "Event Path: $GITHUB_EVENT_PATH"
+          echo "Deployment Status State: ${{ github.event.deployment_status.state }}"
+          echo "Environment URL: ${{ github.event.deployment_status.environment_url }}"
         shell: bash
-
-      # Use the deployment URL in subsequent steps as needed
-      - name: Use Deployment URL
-        run: |
-          echo "Using deployment URL: $DEPLOYMENT_URL"
