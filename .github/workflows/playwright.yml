@@ -7,7 +7,7 @@ on:
 jobs:
   extract-url:
     runs-on: ubuntu-latest
-    if: github.event.issue.pull_request && contains(github.event.comment.body, 'deployment preview URL')
+    if: github.event.issue.pull_request
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
