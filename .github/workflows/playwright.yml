@@ -5,6 +5,7 @@ on:
 
 jobs:
   run-e2es:
+    if: github.event_name == 'deployment_status'
     runs-on: ubuntu-latest
     steps:
       - name: Debug information
