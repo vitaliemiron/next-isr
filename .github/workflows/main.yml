@@ -1,7 +1,8 @@
-on: [push]
+on: [deployment_status]
 
 jobs:
   hello_world_job:
+    if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
