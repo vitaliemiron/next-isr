@@ -6,6 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./workflows # Uses an action in the root directory
+      - uses: ./ # Uses an action in the root directory
         with:
           who-to-greet: 'Mona the Octocat'
