@@ -15,4 +15,4 @@ jobs:
           echo "SERVICE_DOMAIN=$SERVICE_DOMAIN" >> $GITHUB_ENV
         shell: bash
       - name: Debug information
-        run: node index.js
+        run: node ./index.js
