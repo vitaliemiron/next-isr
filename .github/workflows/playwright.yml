@@ -8,15 +8,11 @@ jobs:
     if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success'
     runs-on: ubuntu-latest
     steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: |
-          echo "$GITHUB_CONTEXT"
       - name: Debug information
         run: |
           echo "Event Name: $GITHUB_EVENT_NAME"
           echo "Event Path: $GITHUB_EVENT_PATH"
           echo "Deployment Status State: ${{ github.event.deployment_status.state }}"
           echo "Environment URL: ${{ github.event.deployment_status }}"
+          echo "$GITHUB_CONTEXT"
         shell: bash
