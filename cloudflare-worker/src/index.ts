@@ -33,7 +33,7 @@ export default {
 			url.pathname = url.pathname.replace('/en', '/se');
 			return Response.redirect(url.toString(), 301);
 		}
-		if (url.pathname === '/auto') {
+		if (url.pathname === '/autos') {
 			url.pathname = url.pathname.replace('/auto', '/deployed2');
 			return Response.redirect(url.toString(), 301);
 		}
