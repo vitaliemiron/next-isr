@@ -1839,7 +1839,7 @@ rs-classnames-minifier@0.1.2:
   dependencies:
     uuid "9.0.1"
 
-rs-next-classnames-minifier@^0.0.2:
+rs-next-classnames-minifier@0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/rs-next-classnames-minifier/-/rs-next-classnames-minifier-0.0.2.tgz#f747e18e50c84d2945455ee38d81f96e4b0865c4"
   integrity sha512-C3fF0DNbMZI+zVq+uLewa2gx3Y8psIeipHDaWk79ShyErUILqTty8ZYda41QcXO97DRoSVnLsEQTV0HLMtKaAg==
