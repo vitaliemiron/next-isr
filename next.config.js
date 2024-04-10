@@ -1,8 +1,26 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
-}
+const { PHASE_PRODUCTION_SERVER } = require('next/constants');
 
-module.exports = nextConfig
+const { default: classnamesMinifier } = require('@nimpl/classnames-minifier');
+
+/** @type {import('next').NextConfig} */
+
+module.exports = async (phase) => {
+  let nextConfig = {
+    experimental: {
+      appDir: true,
+    },
+  };
+
+  if (
+    phase !== PHASE_PRODUCTION_SERVER &&
+    process.env.NODE_ENV !== 'development'
+  ) {
+    nextConfig = classnamesMinifier({
+      prefix: '_',
+      reservedNames: ['_en', '_de'],
+      disabled: false, // Enable or disable based on your condition
+    })(nextConfig);
+  }
+
+  return nextConfig;
+};
