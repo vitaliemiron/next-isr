@@ -1866,19 +1866,19 @@ rimraf@^3.0.2:
   dependencies:
     glob "^7.1.3"
 
-rs-classnames-minifier@0.1.4:
-  version "0.1.4"
-  resolved "https://registry.npmjs.org/rs-classnames-minifier/-/rs-classnames-minifier-0.1.4.tgz"
-  integrity sha512-/cJ6eCPIcejeyPC0JZDsIq7cyz5sICwJ5PxEkupst9awx6UrHQp/pCZmmY81D2vJlxDbC2Ou+bV0UW2eO5GbEQ==
+rs-classnames-minifier@0.1.5:
+  version "0.1.5"
+  resolved "https://registry.npmjs.org/rs-classnames-minifier/-/rs-classnames-minifier-0.1.5.tgz"
+  integrity sha512-KnnY5qCCXS4v1IZCRIJd/9vvScufP4qmovSUjbb1BJDG0XWA+0iOHG5xI0ahYm+RsL1z7lMWiJTejwTk0bFASA==
   dependencies:
     uuid "9.0.1"
 
-rs-next-classnames-minifier@0.1.3:
-  version "0.1.3"
-  resolved "https://registry.npmjs.org/rs-next-classnames-minifier/-/rs-next-classnames-minifier-0.1.3.tgz"
-  integrity sha512-j214qYq/9i6H1aXeLelgUaMuC4mEyuLK8dAO7VZSWxbjTMFP8AeYhRYfsnQMr/zKWoB9hq8+imY+8sCTMNdsEg==
+rs-next-classnames-minifier@0.1.4:
+  version "0.1.4"
+  resolved "https://registry.npmjs.org/rs-next-classnames-minifier/-/rs-next-classnames-minifier-0.1.4.tgz"
+  integrity sha512-Rr+FNOCJjnQjqj8xrE+kB6IU1I+ccue0pFPVPojVL+njk6XyzOV9qjuNMyOreQ3xilbDW3x+ANiMh/V/793Fog==
   dependencies:
-    rs-classnames-minifier "0.1.4"
+    rs-classnames-minifier "0.1.5"
     uuid "9.0.1"
 
 run-parallel@^1.1.9:
