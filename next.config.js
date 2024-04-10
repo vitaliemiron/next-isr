@@ -1,6 +1,6 @@
 const { PHASE_PRODUCTION_SERVER } = require('next/constants');
 
-const { default: classnamesMinifier } = require('@nimpl/classnames-minifier');
+const { default: classnamesMinifier } = require('rs-next-classnames-minifier');
 
 /** @type {import('next').NextConfig} */
 
